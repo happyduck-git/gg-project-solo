@@ -1,0 +1,44 @@
+= 커뮤니티 애플리케이션
+:sectnums:
+:toc: left
+:toclevels: 4
+:toc-title: Table of Contents
+:source-highlighter: prettify
+
+Shin Ga Gyoung <ggbetterus@gmail.com>
+
+v1.0.0, 2022.08.16
+
+***
+== MemberController
+=== 회원 전체 조회
+.curl-request
+include::{snippets}/get-members/curl-request.adoc[]
+
+.http-request
+include::{snippets}/get-members/http-request.adoc[]
+
+.request-parameters
+include::{snippets}/get-members/request-parameters.adoc[]
+
+.http-response
+include::{snippets}/get-members/http-response.adoc[]
+
+.response-fields
+include::{snippets}/get-members/response-fields.adoc[]
+
+=== 회원 조건별 조회
+.curl-request
+include::{snippets}/get-condition-members/curl-request.adoc[]
+
+.http-request
+include::{snippets}/get-condition-members/http-request.adoc[]
+
+.request-parameters
+include::{snippets}/get-condition-members/request-parameters.adoc[]
+
+.http-response
+include::{snippets}/get-condition-members/http-response.adoc[]
+
+.response-fields
+include::{snippets}/get-condition-members/response-fields.adoc[]
