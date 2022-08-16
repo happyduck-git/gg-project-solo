@@ -1,0 +1,16 @@
+|===
+|Parameter|Description
+
+|`+page+`
+|페이지
+
+|`+size+`
+|사이즈
+
+|`+locationCode+`
+|지역번호
+
+|`+companyCode+`
+|회사코드
+
+|===

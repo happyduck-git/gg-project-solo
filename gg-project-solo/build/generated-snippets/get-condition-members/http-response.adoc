@@ -1,0 +1,22 @@
+[source,http,options="nowrap"]
+----
+HTTP/1.1 200 OK
+Content-Type: application/json
+Content-Length: 314
+
+[ {
+  "memberId" : 1,
+  "name" : "신가경",
+  "sex" : "F",
+  "companyName" : "가경회사",
+  "companyType" : "001",
+  "companyLocation" : "064"
+}, {
+  "memberId" : 2,
+  "name" : "이희성",
+  "sex" : "M",
+  "companyName" : "희성회사",
+  "companyType" : "001",
+  "companyLocation" : "064"
+} ]
+----

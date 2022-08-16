@@ -1,0 +1,28 @@
+|===
+|Path|Type|Description
+
+|`+[].memberId+`
+|`+Number+`
+|회원 식별자
+
+|`+[].name+`
+|`+String+`
+|회원 이름
+
+|`+[].sex+`
+|`+String+`
+|성별
+
+|`+[].companyName+`
+|`+String+`
+|회사명
+
+|`+[].companyType+`
+|`+String+`
+|사업 분류
+
+|`+[].companyLocation+`
+|`+String+`
+|회사 위치
+
+|===

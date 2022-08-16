@@ -1,0 +1,4 @@
+[source,bash]
+----
+$ http GET 'http://localhost:8080/v1/members/condition?page=1&size=10&locationCode=064&companyCode=001'
+----
