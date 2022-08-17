@@ -2,7 +2,7 @@ package com.ggshin.ggprojectsolo.restdocs.member;
 
 import com.ggshin.ggprojectsolo.company.CompanyLocation;
 import com.ggshin.ggprojectsolo.company.CompanyType;
-import com.ggshin.ggprojectsolo.member.Member;
+import com.ggshin.ggprojectsolo.member.entity.Member;
 import com.ggshin.ggprojectsolo.member.controller.MemberController;
 import com.ggshin.ggprojectsolo.member.dto.MemberDto;
 import com.ggshin.ggprojectsolo.member.mapper.MemberMapper;
@@ -22,7 +22,6 @@ import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.ResultActions;
 import org.springframework.util.LinkedMultiValueMap;
 import org.springframework.util.MultiValueMap;
-import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.List;
 
@@ -66,31 +65,85 @@ public class MemberControllerRestDocsTest {
         pageMap.add("page", page);
         pageMap.add("size", size);
 
-        CompanyType companyType = new CompanyType(1L, "IT", "001");
-        CompanyLocation companyLocation = new CompanyLocation(1L, "Jeju", "064");
+        CompanyType companyType1 = new CompanyType(1L, "IT", "001");
+        CompanyLocation companyLocation1 = new CompanyLocation(1L, "Jeju", "064");
+        CompanyType companyType2 = new CompanyType(2L, "MKT", "002");
+        CompanyLocation companyLocation2 = new CompanyLocation(2L, "Incheon", "032");
         Member member1 =
-                new Member("신가경",
+                new Member("회원1",
                         "Pass1234",
                         "F",
-                        "가경회사",
-                        companyType,
-                        companyLocation);
+                        "DummyCompany1",
+                        companyType1,
+                        companyLocation1);
+        Member member2 =
+                new Member("회원2",
+                        "Pass1234",
+                        "M",
+                        "DummyCompany2",
+                        companyType1,
+                        companyLocation1);
+        Member member3 =
+                new Member("회원3",
+                        "Pass1234",
+                        "F",
+                        "DummyCompany3",
+                        companyType2,
+                        companyLocation2);
+        Member member4 =
+                new Member("회원4",
+                        "Pass1234",
+                        "F",
+                        "DummyCompany4",
+                        companyType1,
+                        companyLocation2);
         Page<Member> memberPage = new PageImpl<>(
                 List.of(
-                        member1
+                        member1,
+                        member2,
+                        member3,
+                        member4
                 )
         );
-        MemberDto.Response response =
+        //responses
+        MemberDto.Response response1 =
                 new MemberDto.Response(
                         1L,
-                        "신가경",
+                        "회원1",
                         "F",
-                        "가경회사",
-                        companyType,
-                        companyLocation
+                        "DummyCompany1",
+                        companyType1,
+                        companyLocation1
+                );
+        MemberDto.Response response2 =
+                new MemberDto.Response(
+                        2L,
+                        "회원2",
+                        "M",
+                        "DummyCompany2",
+                        companyType1,
+                        companyLocation1
+                );
+        MemberDto.Response response3 =
+                new MemberDto.Response(
+                        3L,
+                        "회원3",
+                        "F",
+                        "DummyCompany3",
+                        companyType2,
+                        companyLocation2
+                );
+        MemberDto.Response response4 =
+                new MemberDto.Response(
+                        4L,
+                        "회원4",
+                        "F",
+                        "DummyCompany4",
+                        companyType1,
+                        companyLocation2
                 );
         List<MemberDto.Response> responses = List.of(
-                response
+                response1, response2, response3, response4
         );
 
         given(memberService.findMembers(Mockito.anyInt(), Mockito.anyInt())).willReturn(memberPage);
@@ -149,23 +202,19 @@ public class MemberControllerRestDocsTest {
         CompanyType companyType1 = new CompanyType(1L, "IT", "001");
         CompanyLocation companyLocation1 = new CompanyLocation(1L, "Jeju", "064");
         Member member1 =
-                new Member("신가경",
+                new Member("회원1",
                         "Pass1234",
                         "F",
-                        "가경회사",
+                        "DummyCompany1",
                         companyType1,
                         companyLocation1);
-
-            //member2 - condition not satisfied
-        CompanyType companyType2 = new CompanyType(2L, "IT", "001");
-        CompanyLocation companyLocation2 = new CompanyLocation(2L, "Incheon", "064");
         Member member2 =
-                new Member("이희성",
+                new Member("회원2",
                         "Pass1234",
                         "M",
-                        "희성회사",
-                        companyType2,
-                        companyLocation2);
+                        "DummyCompany2",
+                        companyType1,
+                        companyLocation1);
 
         Page<Member> memberPage = new PageImpl<>(
                 List.of(
@@ -177,20 +226,20 @@ public class MemberControllerRestDocsTest {
         MemberDto.Response response1 =
                 new MemberDto.Response(
                         1L,
-                        "신가경",
+                        "회원1",
                         "F",
-                        "가경회사",
+                        "DummyCompany1",
                         companyType1,
                         companyLocation1
                 );
         MemberDto.Response response2 =
                 new MemberDto.Response(
                         2L,
-                        "이희성",
+                        "회원2",
                         "M",
-                        "희성회사",
-                        companyType2,
-                        companyLocation2
+                        "DummyCompany2",
+                        companyType1,
+                        companyLocation1
                 );
         List<MemberDto.Response> responses = List.of(
                 response1, response2

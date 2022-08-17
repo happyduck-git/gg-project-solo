@@ -1,6 +1,6 @@
 package com.ggshin.ggprojectsolo.member.service;
 
-import com.ggshin.ggprojectsolo.member.Member;
+import com.ggshin.ggprojectsolo.member.entity.Member;
 import com.ggshin.ggprojectsolo.member.repository.MemberRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -9,7 +9,6 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
-import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -20,6 +19,18 @@ public class MemberService {
     @Autowired
     public MemberService(MemberRepository memberRepository) {
         this.memberRepository = memberRepository;
+    }
+
+    //Member 생성
+    public Member createMember(Member member) {
+
+        System.out.println("From Member Service: (Entity) " + member);
+
+        Member savedMember = memberRepository.save(member);
+
+        System.out.println("From Member Service: (Saved Entity) " + member);
+        return savedMember;
+
     }
 
     //Member 전체 조회

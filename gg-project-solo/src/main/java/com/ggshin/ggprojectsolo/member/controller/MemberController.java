@@ -1,17 +1,14 @@
 package com.ggshin.ggprojectsolo.member.controller;
 
-import com.ggshin.ggprojectsolo.member.Member;
+import com.ggshin.ggprojectsolo.member.dto.MemberDto;
+import com.ggshin.ggprojectsolo.member.entity.Member;
 import com.ggshin.ggprojectsolo.member.mapper.MemberMapper;
 import com.ggshin.ggprojectsolo.member.service.MemberService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import javax.validation.constraints.Positive;
 import java.util.List;
@@ -27,6 +24,26 @@ public class MemberController {
     public MemberController(MemberService memberService, MemberMapper memberMapper) {
         this.memberService = memberService;
         this.memberMapper = memberMapper;
+    }
+
+    @PostMapping
+    public ResponseEntity postMember(@RequestBody MemberDto.Post memberPostDto) {
+
+        System.out.println("From MemberController: (Post Dto) " + memberPostDto);
+
+        //Dto to Entity
+        Member member = memberMapper.memberDtoToMember(memberPostDto);
+
+        System.out.println("From MemberController: (Entity) " + member);
+
+        //send the entity to service
+        memberService.createMember(member);
+
+        //Entity to Response Dto
+        MemberDto.Response response = memberMapper.memberToMemberResponse(member);
+
+        return new ResponseEntity<>(response, HttpStatus.CREATED);
+
     }
 
     //전체 회원 조회

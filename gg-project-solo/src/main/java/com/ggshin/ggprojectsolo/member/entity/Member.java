@@ -1,8 +1,9 @@
-package com.ggshin.ggprojectsolo.member;
+package com.ggshin.ggprojectsolo.member.entity;
 
 import com.ggshin.ggprojectsolo.company.CompanyLocation;
 import com.ggshin.ggprojectsolo.company.CompanyType;
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
@@ -27,6 +28,7 @@ public class Member {
     @JoinColumn(name = "LOCATION_CODE")
     private CompanyLocation companyLocation;
 
+    @Builder
     public Member(String name, String password, String sex, String companyName, CompanyType companyType, CompanyLocation companyLocation) {
         this.name = name;
         this.password = password;
@@ -34,5 +36,18 @@ public class Member {
         this.companyName = companyName;
         this.companyType = companyType;
         this.companyLocation = companyLocation;
+    }
+
+    @Override
+    public String toString() {
+        return "Member{" +
+                "memberId=" + memberId +
+                ", name='" + name + '\'' +
+                ", password='" + password + '\'' +
+                ", sex='" + sex + '\'' +
+                ", companyName='" + companyName + '\'' +
+                ", companyType=" + companyType +
+                ", companyLocation=" + companyLocation +
+                '}';
     }
 }
