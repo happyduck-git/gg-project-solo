@@ -1,7 +1,7 @@
 package com.ggshin.ggprojectsolo.restdocs.member;
 
-import com.ggshin.ggprojectsolo.company.CompanyLocation;
-import com.ggshin.ggprojectsolo.company.CompanyType;
+import com.ggshin.ggprojectsolo.company.location.entity.CompanyLocation;
+import com.ggshin.ggprojectsolo.company.type.entity.CompanyType;
 import com.ggshin.ggprojectsolo.member.entity.Member;
 import com.ggshin.ggprojectsolo.member.controller.MemberController;
 import com.ggshin.ggprojectsolo.member.dto.MemberDto;

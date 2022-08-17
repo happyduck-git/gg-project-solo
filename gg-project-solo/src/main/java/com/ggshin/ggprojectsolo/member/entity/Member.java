@@ -1,7 +1,7 @@
 package com.ggshin.ggprojectsolo.member.entity;
 
-import com.ggshin.ggprojectsolo.company.CompanyLocation;
-import com.ggshin.ggprojectsolo.company.CompanyType;
+import com.ggshin.ggprojectsolo.company.location.entity.CompanyLocation;
+import com.ggshin.ggprojectsolo.company.type.entity.CompanyType;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;

@@ -1,13 +1,9 @@
 package com.ggshin.ggprojectsolo.member.dto;
 
-import com.ggshin.ggprojectsolo.company.CompanyLocation;
-import com.ggshin.ggprojectsolo.company.CompanyType;
+import com.ggshin.ggprojectsolo.company.location.entity.CompanyLocation;
+import com.ggshin.ggprojectsolo.company.type.entity.CompanyType;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
-import org.springframework.web.bind.annotation.GetMapping;
-
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
 
 public class MemberDto {
 

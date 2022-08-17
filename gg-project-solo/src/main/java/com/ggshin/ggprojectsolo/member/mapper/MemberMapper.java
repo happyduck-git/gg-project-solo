@@ -1,7 +1,5 @@
 package com.ggshin.ggprojectsolo.member.mapper;
 
-import com.ggshin.ggprojectsolo.company.CompanyLocation;
-import com.ggshin.ggprojectsolo.company.CompanyType;
 import com.ggshin.ggprojectsolo.member.entity.Member;
 import com.ggshin.ggprojectsolo.member.dto.MemberDto;
 import org.mapstruct.Mapper;
